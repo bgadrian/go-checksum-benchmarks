@@ -1,6 +1,7 @@
 package go_checksum_benchmarks
 
 import (
+	"encoding/hex"
 	"hash"
 	"hash/fnv"
 
@@ -35,7 +36,7 @@ type murmur3wrapper struct {
 
 func (w *murmur3wrapper) Sum128Bytes() []byte {
 	a, b := w.Sum128()
-	return UIntsToByte([2]uint64{a, b})
+	return uintToBytes([2]uint64{a, b})
 }
 
 func NewMurmur3_128() Hash128 {
@@ -53,11 +54,13 @@ func NewJenkins_128() Hash128 {
 	return &jenkinswrapper{&spooky.Spooky{}}
 }
 
-func UIntsToByte(s [2]uint64) []byte {
+func uintToBytes(s [2]uint64) []byte {
 	return []byte{
 		byte(s[0] >> 56), byte(s[0] >> 48), byte(s[0] >> 40), byte(s[0] >> 32), byte(s[0] >> 24), byte(s[0] >> 16), byte(s[0] >> 8), byte(s[0]),
 		byte(s[1] >> 56), byte(s[1] >> 48), byte(s[1] >> 40), byte(s[1] >> 32), byte(s[1] >> 24), byte(s[1] >> 16), byte(s[1] >> 8), byte(s[1]),
 	}
 }
 
-//TODO Sum128 to hex string
+func Hex(h Hash128) string {
+	return hex.EncodeToString(h.Sum128Bytes())
+}

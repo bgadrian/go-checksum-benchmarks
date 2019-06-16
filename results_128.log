@@ -1,0 +1,17 @@
+goos: linux
+goarch: amd64
+pkg: github.com/bgadrian/go-checksum-benchmarks
+Benchmark_text1_FNV1_128-4      	 3000000	       583 ns/op	      48 B/op	       3 allocs/op
+Benchmark_text1_FNV1_128a-4     	 3000000	       566 ns/op	      48 B/op	       3 allocs/op
+Benchmark_text1_murmur3_128-4   	 5000000	       301 ns/op	     128 B/op	       3 allocs/op
+Benchmark_text1_jenkins_128-4   	 5000000	       288 ns/op	     256 B/op	       3 allocs/op
+Benchmark_text2_FNV1_128-4      	  200000	     10621 ns/op	      48 B/op	       3 allocs/op
+Benchmark_text2_FNV1_128a-4     	  200000	     10320 ns/op	      48 B/op	       3 allocs/op
+Benchmark_text2_murmur3_128-4   	 2000000	       972 ns/op	     128 B/op	       3 allocs/op
+Benchmark_text2_jenkins_128-4   	 2000000	       944 ns/op	     256 B/op	       3 allocs/op
+Benchmark_text3_FNV1_128-4      	  200000	      8733 ns/op	      48 B/op	       3 allocs/op
+Benchmark_text3_FNV1_128a-4     	  200000	      8118 ns/op	      48 B/op	       3 allocs/op
+Benchmark_text3_murmur3_128-4   	 2000000	       729 ns/op	     128 B/op	       3 allocs/op
+Benchmark_text3_jenkins_128-4   	 2000000	       809 ns/op	     256 B/op	       3 allocs/op
+PASS
+ok  	github.com/bgadrian/go-checksum-benchmarks	26.352s
